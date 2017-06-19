@@ -14,6 +14,8 @@ echo "Downloading $tarball_url"
 curl -L $tarball_url > t.zip
 unzip t.zip 
 
+echo `apt-cache policy gcj-jdk`
+
 echo "Patching GCJ to work"
 cp /app/.apt/usr/bin/gcj-4.8 /app/.apt/usr/bin/gcj-4.8-orig 
 sed -i.bak s/\\/usr\\/share\\/java\\/libgcj-4.8.jar/~usr\\/share\\/java\\/libgcj-4.8.jar/g /app/.apt/usr/bin/gcj-4.8
